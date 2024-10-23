@@ -1,7 +1,13 @@
+using Daniel.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<IUserservice, UserService>();
+builder.Services.AddSingleton<IPaystackService, PaymentService>();
+//builder.Services.AddScoped<IUserservice, UserService>();
 
 var app = builder.Build();
 

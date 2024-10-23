@@ -4,11 +4,29 @@ namespace Daniel.Service
 {
     public class UserService: IUserservice
     {
-        public UserService() { }
+        private List<UserProfile> userProfiles = new List<UserProfile>();
 
-        public Task<List<UserProfile>> GetUsers()
+        public UserService() {
+
+            userProfiles.Add(new UserProfile
+            {
+                name = "Frank",
+                country = "Nigeria",
+                tribe = "canada"
+            });
+
+            userProfiles.Add(new UserProfile
+            {
+                name = "Daniel",
+                country = "Nigeria",
+                tribe = "calarbar"
+            });
+
+        }
+
+        public async Task<List<UserProfile>> GetUsers()
         {
-            throw new NotImplementedException();
+            return userProfiles.ToList();
         }
     }
 }
