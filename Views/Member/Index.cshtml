@@ -1,0 +1,25 @@
+﻿@using Daniel.Models
+@model List<UserProfile>
+
+@{
+    Layout = "/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>List of all users!</h1>
+<p>THIS IS THE MEMBERS PAGE</p>
+
+<ul>
+    @foreach(var user in Model)
+    {
+        <li>@user.name</li>
+    }
+
+    @{
+        int age = 20;
+        foreach(var user in Model)
+        {
+            <li>@user.country</li>
+        }
+        <p>@age</p>
+    }
+</ul>

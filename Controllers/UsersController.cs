@@ -19,6 +19,22 @@ namespace Daniel.Controllers
             _userService = userService;
         }
 
+        [HttpGet]
+        [Route("add_user")]
+        public async Task<IActionResult> AddUser([FromQuery] UserProfile newUser)
+        {
+            var addedUser = await _userService.AddUser(newUser);
+            return Ok(addedUser);
+        }
+
+        [HttpPost]
+        [Route("post_user")]
+        public async Task<IActionResult> PostUser([FromForm] UserProfile newUser)
+        {
+            var addedUser = await _userService.AddUser(newUser);
+            return Ok(addedUser);
+        }
+
         //c# async await
         //200, 500, 401, 301 oe 302, 404
         //GET and POST
@@ -48,5 +64,6 @@ namespace Daniel.Controllers
         //Assignment
         //Create a controller method, that adds a user to the users list
         //and confirm the user was added by calling the get all users endpoint
+        //create an extra method that deletes a user
     }
 }

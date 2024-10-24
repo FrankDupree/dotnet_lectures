@@ -6,5 +6,6 @@ namespace Daniel.Service
     {
         //Daniel read up on async and await c#
         public Task<List<UserProfile>> GetUsers();
+        public Task<UserProfile> AddUser(UserProfile user);
     }
 }
